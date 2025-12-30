@@ -1,0 +1,146 @@
+@startuml
+
+entity "Users" as u {
+    id:UUID
+    --
+    username:varchar(256)
+    email:varchar(128)
+    password:String
+    privacy:boolean  /'Public || Private'/
+    status:byte     /'trang thai cua nguoi dung. Han che, thoai mai, chua xac thuc'/
+    avatar:String   /'anh dai dien nguoi dung'/
+    birthday: LocalDate
+    createdAt:Timestamp
+    updatedAt:Timestamp
+}
+
+entity "Likes" as l {
+    id:integer<<auto_increment>> 
+    userId:UUID
+    postId:integer
+    --
+    created_at:Timestamp
+}
+
+entity "Posts" as p {
+    id:integer<<auto_increment>>
+    userId:UUID
+    --
+    visible:boolean /'True:hien thi, False: an'/
+    caption:String
+    createdAt:Timestamp
+    updatedAt:Timestamp
+}
+
+entity "Medias" as m {
+    id:integer<<auto_increment>>
+    postId:integer
+    --
+    mediaUrl:varchar(512)
+    created_at:Timestamp
+}
+
+entity "Comments" as c {
+    id:integer<<auto_increment>>
+    userId:UUID
+    postId:String
+    --
+    visible:boolean /'True: hien'/
+    preComment:integer
+    commentText:String
+    createdAt:Timestamp
+    updatedAt:Timestamp
+}
+
+entity "Follows" as f {    
+    id:integer<<auto_increment>>
+    followerUserId:String
+    followingUserId:String
+    --
+    createdAt:Timestamp
+}
+
+entity "ChatGroups" as g{
+    id:integer<<auto_increment>>
+    ---
+    creatAt:Timestamp
+}
+
+entity "GroupMembers" as mem{
+    id:integer<<auto_increment>>
+    groupId:String
+    userId:UUID
+    ---
+    isLeader:boolean
+    createdAt:Timestamp
+}
+
+entity "Messages" as me{
+    id:integer<<auto_increment>>
+    groupId:String
+    userId:UUID
+    ---
+    visible:boolean
+    context:String
+    createdAt:Timestamp
+}
+
+entity "Roles" as ro{
+    name:String
+    ---
+    description:String
+}
+
+entity "Permissions" as pe{
+    name:String
+    ---
+    description:String
+}
+
+/'Tin noi bat'/
+entity "Highlights" as wl{
+    id:integer<<auto_increment>>
+    userId:UUID
+    postId:String
+    ---
+    createdAt:Timestamp
+}
+
+/''/
+entity "Blocks" as bl{
+    id:integer<<auto_increment>>
+    blockerId:UUID
+    blockedId:UUID
+}
+
+entity "Reports" as rp{
+    id:integer<<auto_increment>>
+    reporter:UUID /'id nguoi tao phieu report'/
+    reported:UUID  /'id cua nguoi bi report'/
+    reportedPost:   /'id cua bai post bi report'/
+    ---
+    context:byte
+    createdAt:Timestamp
+}
+
+u ||..o{ p
+u ||..o{ f
+u ||..o{ l
+u ||..o{ c
+u ||..o{ ro
+u ||..o{ wl
+u ||..o{ bl : "Blocker"
+bl ||..|| u: "Blocked"
+p ||..o{ m
+p ||..o{ c
+p ||..o{ l
+g ||..o{ me
+me ||..|| u
+pe ||..|| ro
+g ||..o{ mem
+mem ||..|| u
+wl ||..|| p
+rp }o..|| u : "Reporter"
+rp ||..|| u : "Reported"
+
+@enduml
