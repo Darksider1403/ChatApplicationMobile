@@ -13,20 +13,20 @@ const ConversationLayout = () => {
         name="Conversations"
         component={Conversations}
         options={{
-          // headerShown: true,
-          // header: ({navigation, route}) => (
-          //   <HeaderConversations navigation={navigation} route={route} />
-          // ),
+//           headerShown: true,
+//           header: ({navigation, route}) => (
+//             <HeaderConversations navigation={navigation} route={route} />
+//           ),
         }}
       />
       <Stack.Screen
         name="Conversation"
         component={Conversation}
         options={{
-          // headerShown: true,
-          // header: ({navigation, route}) => (
-          //   <HeaderConversation navigation={navigation} route={route} />
-          // ),
+//           headerShown: true,
+//           header: ({navigation, route}) => (
+//             <HeaderConversation navigation={navigation} route={route} />
+//           ),
         }}
       />
     </Stack.Navigator>
