@@ -8,24 +8,25 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "Medias")
+@Table(name = "Likes")
 @Data
 @NoArgsConstructor
-@ToString
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Media {
+public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    String mediaUrl;
     Timestamp createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    User user;
 
     @ManyToOne
     @JoinColumn(name = "post_id", nullable = false)
     Post post;
-
     @PrePersist
     public void prePersist() {
         Date date = new Date();

@@ -3,7 +3,6 @@ package com.chat_application.ChatApplication.Controllers.v1;
 import com.chat_application.ChatApplication.Dto.Request.AuthenticationReq;
 import com.chat_application.ChatApplication.Dto.Request.IntrospectReq;
 import com.chat_application.ChatApplication.Dto.Response.ApiResponse;
-import com.chat_application.ChatApplication.Dto.Request.LoginRequest;
 import com.chat_application.ChatApplication.Dto.Response.AuthenticationRes;
 import com.chat_application.ChatApplication.Dto.Response.IntrospectRes;
 import com.chat_application.ChatApplication.Services.AuthenticationService;

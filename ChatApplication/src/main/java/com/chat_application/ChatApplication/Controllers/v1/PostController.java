@@ -2,7 +2,6 @@ package com.chat_application.ChatApplication.Controllers.v1;
 
 import com.chat_application.ChatApplication.Dto.Request.BlogCreateReq;
 import com.chat_application.ChatApplication.Dto.Request.BlogUpdateReq;
-import com.chat_application.ChatApplication.Dto.Request.UserReq;
 import com.chat_application.ChatApplication.Dto.Request.UsernameRequest;
 import com.chat_application.ChatApplication.Dto.Response.ApiResponse;
 import com.chat_application.ChatApplication.Dto.Response.PostResponse;

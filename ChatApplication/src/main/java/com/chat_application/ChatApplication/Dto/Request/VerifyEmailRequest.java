@@ -1,5 +1,6 @@
 package com.chat_application.ChatApplication.Dto.Request;
 
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -8,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserReq {
-    String username, password, email;
+public class VerifyEmailRequest {
+    @Email(message = "EMAIL_INVALID")
+    String email;
 }

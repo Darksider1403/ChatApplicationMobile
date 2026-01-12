@@ -1,12 +1,7 @@
 package com.chat_application.ChatApplication.Controllers.v1;
 
-import com.chat_application.ChatApplication.Dto.Request.RoleRequest;
-import com.chat_application.ChatApplication.Dto.Response.ApiResponse;
 import com.chat_application.ChatApplication.Dto.Response.NotificationResponse;
-import com.chat_application.ChatApplication.Dto.Response.RoleResponse;
-import com.chat_application.ChatApplication.Entities.Notification;
 import com.chat_application.ChatApplication.Services.NotificationService;
-import com.chat_application.ChatApplication.Services.RoleService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

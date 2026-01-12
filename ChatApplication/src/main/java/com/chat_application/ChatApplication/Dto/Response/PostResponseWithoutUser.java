@@ -1,6 +1,5 @@
 package com.chat_application.ChatApplication.Dto.Response;
 
-import com.chat_application.ChatApplication.Entities.User;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
