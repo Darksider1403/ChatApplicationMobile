@@ -1,7 +1,6 @@
 package com.chat_application.ChatApplication.Services.cloudinary;
 
 import com.chat_application.ChatApplication.Dto.Response.ApiResponse;
-import com.chat_application.ChatApplication.Entities.Media;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
